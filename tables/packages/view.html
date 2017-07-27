@@ -1,0 +1,248 @@
+<div class="container-fluid">
+
+	<button class="btn btn-primary" ui-sref="portal.packages.edit({packageid : packageC.newData.packages.id})">Edit</button>
+	<button class="btn btn-danger" ng-click="packageC.submitDelete()">Delete</button></br></br>
+
+    <form action="">
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<label class="form-control" ng-hide="packageC.isEditing" ng-dblclick="packageC.dblClkEdit($event)" disabled>Id : {{packageC.newData.packages.id}}</label>
+				<input class="form-control" ng-show="packageC.isEditing" type="" ng-model="packageC.newData.packages.id" ng-blur="packageC.doneEditing()">
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Name : {{packageC.newData.packages.basic.name}}</div>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Description : {{packageC.newData.packages.basic.description}}</div>
+			</div>
+		</div>
+
+		<div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Thumbnail : {{packageC.newData.packages.basic.thumbnail}}</div>
+			</div>
+		</div>
+
+		<div class="row">
+            <div class="col-md-1 form-group">
+		  		<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#galleryModal">Gallery links</button>
+		  	</div>
+		  	<div class="col-md-1 form-group">
+		  		<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#priceModal">Prices</button>
+		  	</div>
+		  	<div class="col-md-1 form-group">
+		  		<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#validityModal">Validity</button>
+		  	</div>
+		  	<div class="col-md-1 form-group">
+		  		<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#durationModal">Duration</button>
+		  	</div>
+		  </div>
+
+		  <!-- Modal -->
+		  <div class="modal fade" id="galleryModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">All gallery links are below</h4>
+		        </div>
+		        <div class="modal-body">
+
+		          <div class="row" ng-repeat="photo in packageC.newData.packages.photoList">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Link {{$index + 1}} : {{photo}}</div>
+					</div>
+				  </div>
+
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+
+		  <!-- Modal -->
+		  <div class="modal fade" id="priceModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">All prices are below</h4>
+		        </div>
+		        <div class="modal-body">
+		          <div class="row">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Total Actual : {{packageC.newData.packages.price.totalActual}}</div>
+					</div>
+					<div class="col-md-4 form-group">
+						<div class="form-control">Total Discounted : {{packageC.newData.packages.price.totalDiscounted}}</div>
+					</div>
+				  </div>
+
+				  <div class="row">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Adult Actual : {{packageC.newData.packages.price.adultActual}}</div>
+					</div>
+					<div class="col-md-4 form-group">
+						<div class="form-control">Adult Discounted : {{packageC.newData.packages.price.adultDiscounted}}</div>
+					</div>
+				  </div>
+
+				  <div class="row">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Child Actual : {{packageC.newData.packages.price.childActual}}</div>
+					</div>
+					<div class="col-md-4 form-group">
+						<div class="form-control">Child Discounted : {{packageC.newData.packages.price.childDiscounted}}</div>
+					</div>
+				  </div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+
+		  <!-- Modal -->
+		  <div class="modal fade" id="validityModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">Find trip validity below</h4>
+		        </div>
+		        <div class="modal-body">
+
+		          <div class="row">
+		            <div class="col-md-8 form-group">
+						<div class="form-control">Days : {{packageC.newData.packages.validity.from}}</div>
+					</div>
+				  </div>
+				  <div class="row">
+		            <div class="col-md-8 form-group">
+						<div class="form-control">Nights : {{packageC.newData.packages.validity.to}}</div>
+					</div>
+				  </div>
+
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+
+		  <!-- Modal -->
+		  <div class="modal fade" id="durationModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">Find trip duration below</h4>
+		        </div>
+		        <div class="modal-body">
+
+		          <div class="row">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Days : {{packageC.newData.packages.duration.days}}</div>
+					</div>
+				  </div>
+				  <div class="row">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Nights : {{packageC.newData.packages.duration.nights}}</div>
+					</div>
+				  </div>
+				  <div class="row">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Type : {{packageC.newData.packages.duration.type}}</div>
+					</div>
+				  </div>
+
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		  <!--              Modals finish            -->
+
+		  <div class="row">
+            <div class="col-md-4 form-group">
+		  		<multiselect ng-model="packageC.selectedCityList" options="packageC.newData.packages.cityList" id-prop="id" display-prop="name" show-select-all="true" show-unselect-all="true" show-search="true"></multiselect>
+		  	</div>
+		  </div>
+
+		  <div class="row">
+            <div class="col-md-1 form-group">
+		  		<button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#citiesModal">Selected Cities</button>
+		  	</div>
+		  </div>
+
+		  <!-- Modal -->
+		  <div class="modal fade" id="citiesModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">Selected Cities</h4>
+		        </div>
+		        <div class="modal-body">
+
+		        <div ng-repeat="city in packageC.selectedCityList">
+		          <div class="row">
+		            <div class="col-md-4 form-group">
+						<div class="form-control">Link {{$index + 1}} : {{city.id}}</div>
+					</div>
+					<div class="col-md-4 form-group">
+						<div class="form-control">Name : {{city.name}}</div>
+					</div>
+				  </div>
+
+				  <div class="row">
+		            <div class="col-md-4 form-group">
+		            	Select Hotel :
+		            	<multiselect ng-model="packageC.selectedCityList[$index].hotelList" options="packageC.selectedCitiesData.hotelList" id-prop="id" display-prop="name" show-select-all="true" show-unselect-all="true" show-search="true"></multiselect>
+		            </div>
+		            <div class="col-md-4 form-group">
+		            	Select Activity :
+		            	<multiselect ng-model="packageC.selectedCityList[$index].hotelList" options="packageC.selectedCitiesData.activityList" id-prop="id" display-prop="name" show-select-all="true" show-unselect-all="true" show-search="true"></multiselect>
+		            </div>
+		          </div>
+				 <hr width="540" size="500">
+				 </div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+
+	</form>
+
+	<button class="btn btn-default" ui-sref="portal.packages.list">Back</button>
+</div>

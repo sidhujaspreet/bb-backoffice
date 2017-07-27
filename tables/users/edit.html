@@ -1,0 +1,39 @@
+
+<div class="container-fluid">
+    <form action="">
+        <div class="row">
+            <div class="col-md-4 form-group">
+          <label for="firstName">Username :</label>
+          <input class="form-control" type="text" name="firstname" ng-model="tableC.newData.users.username">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+          <label for="email">Email :</label>
+          <input class="form-control" type="text" name="lastname" ng-model="tableC.newData.users.email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+          <label for="email">Password :</label>
+          <input class="form-control" type="text" name="lastname" ng-model="tableC.newData.users.password">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+          <label for="email">Role :</label>
+          <input class="form-control" type="text" name="lastname" ng-model="tableC.newData.users.role">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+              <input class="btn btn-primary" ui-sref="portal.users.list" value="Cancel">
+            </div>
+            <div class="col-md-4 text-center">
+              <input class="btn btn-success" value="Submit" ng-click="tableC.submitEdit()">
+            </div>
+        </div>
+    </form> 
+</div>
+

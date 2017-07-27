@@ -1,0 +1,69 @@
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="css/new.css">
+        <script src="controllers/controller.js"></script>-->
+
+        <script src="http://rawgit.com/nmccready/angular-simple-logger/master/dist/angular-simple-logger.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-cookies.js"></script>
+        <script src="./node_modules/angular-bootstrap-multiselect/dist/angular-bootstrap-multiselect.min.js"></script>
+
+        <!-- Appacitive SDK file -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-base64/2.0.5/angular-base64.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-dropdown-multiselect/1.11.8/angularjs-dropdown-multiselect.min.js"></script>
+        <!--Project dependencies-->
+        <link rel="stylesheet" href="css/index.css"/>
+        <link rel="stylesheet" href="css/custom.css"/>
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript" src="scripts/controllers/controller.js"></script>
+        <script type="text/javascript" src="scripts/directives/directive.js"></script>
+        <script type="text/javascript" src="scripts/services/service.js"></script>
+        <script type="text/javascript" src="scripts/factories/factory.js"></script>
+        <!--<script type="text/javascript" src="scripts/jquery/index.js"></script>-->
+    </head>
+    <body ng-app="gofarModule" ng-controller="appCtrl as appC">
+        <!-- Navigation -->
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#"><h3>CrudKit</h3></a>
+            </div>
+            <div class="pull-right">
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#skills">SKILLS</a></li>
+                        <li has-permission="appC.roleAdmin"><a>Admin</a></li>
+                        <li has-permission="appC.roleUser"><a>User</a></li>
+                        <li has-permission="appC.rolePublic"><a>Public</a></li>
+                    </ul>
+                    
+                    <button ng-click='appC.logoutClick()' id="nav-button" type="button" class="navbar-toggle" data-toggle="collapse" data-target="">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                     </button>
+                </div>
+            </div>
+        </div>
+    </nav>  
+
+        <div class="body-container" ui-view></div>
+        
+    </body>
+</html>
+

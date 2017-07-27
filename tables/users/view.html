@@ -1,0 +1,33 @@
+<div class="container-fluid">
+
+	<button class="btn btn-primary" ui-sref="portal.users.edit({userid : tableC.newData.users.username})">Edit</button>
+	<button class="btn btn-danger" ng-click="tableC.submitDelete()">Delete</button></br></br>
+
+    <form action="">
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<label class="form-control">Username : {{tableC.newData.users.username}}</label>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Email : {{tableC.newData.users.email}}</div>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Password : {{tableC.newData.users.password}}</div>
+			</div>
+		</div>
+
+		<div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Role : {{tableC.newData.users.role}}</div>
+			</div>
+		</div>
+	</form>
+
+	<button class="btn btn-default" ui-sref="portal.users.list">Back</button>
+</div>

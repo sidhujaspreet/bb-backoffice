@@ -1,0 +1,25 @@
+<div id="listView">
+<button type="button" class="btn btn-success" ui-sref="portal.packages.add" ng-click="packageC.addBtn()">Add</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Events</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in packageC.data.packages">
+        <td>{{ item.id }}</td>
+        <td>{{ item.basic.name }}</td>
+        <td>{{ item.basic.description }}</td>
+        <td>
+            <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.packages.view({packageid : packageC.newData.packages.id})" ng-click="packageC.viewBtn($index)">View</button>
+            <button class="btn btn-primary" has-permission="appC.roleUserAdmin" ui-sref="portal.packages.edit({packageid : packageC.newData.packages.id})" ng-click="packageC.editBtn($index)">Edit</button>
+            <button class="btn btn-danger" has-permission="appC.roleUserAdmin" ng-click="packageC.submitDelete($index)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

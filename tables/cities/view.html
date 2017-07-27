@@ -1,0 +1,27 @@
+<div class="container-fluid">
+
+	<button class="btn btn-primary" ui-sref="portal.cities.edit({cityid : tableC.newData.cities.id})">Edit</button>
+	<button class="btn btn-danger" ng-click="tableC.submitDelete()">Delete</button></br></br>
+
+    <form action="">
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<label class="form-control">Id : {{tableC.newData.cities.id}}</label>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Code : {{tableC.newData.cities.code}}</div>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+				<div class="form-control">Name : {{tableC.newData.cities.name}}</div>
+			</div>
+		</div>
+	</form>
+
+	<button class="btn btn-default" ui-sref="portal.cities.list">Back</button>
+</div>

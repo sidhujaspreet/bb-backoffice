@@ -1,0 +1,34 @@
+
+<div class="container-fluid">
+<form action="">
+    <div class="row">
+        <div class="col-xs-4 form-group">
+          <label for="firstName">Id :</label>
+          <input class="form-control" type="text" name="firstname" ng-model="tableC.newData.cities.id">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 form-group">
+          <label for="email">Code :</label>
+          <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.newData.cities.code">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 form-group">
+          <label for="email">Name :</label>
+          <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.newData.cities.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-center">
+          <input class="btn btn-primary" value="Cancel" sref="portal.cities.list">
+        </div>
+        <div class="col-xs-4 text-center">
+          <input class="btn btn-success" value="Add" ng-click="tableC.submitAdd()">
+        </div>
+    </div>
+</form> 
+</div>
+
+
+

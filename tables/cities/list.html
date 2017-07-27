@@ -1,0 +1,25 @@
+<div id="listView">
+<button type="button" class="btn btn-success" ui-sref="portal.cities.add" ng-click="tableC.addBtn()">Add</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Events</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in tableC.data.cities">
+        <td>{{ item.id }}</td>
+        <td>{{ item.code }}</td>
+        <td>{{ item.name }}</td>
+        <td>
+            <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.newData.cities.id})" ng-click="tableC.viewBtn($index)">View</button>
+            <button class="btn btn-primary" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.edit({cityid : tableC.newData.cities.id})" ng-click="tableC.editBtn($index)">Edit</button>
+            <button class="btn btn-danger" has-permission="appC.roleUserAdmin" ng-click="tableC.submitDelete($index)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
