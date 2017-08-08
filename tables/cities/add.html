@@ -1,33 +1,70 @@
-
-<div class="container-fluid">
-<form action="">
-    <div class="row">
-        <div class="col-xs-4 form-group">
-          <label for="firstName">Id :</label>
-          <input class="form-control" type="text" name="firstname" ng-model="tableC.newData.cities.id">
+<div class="container-fluid row">
+  <div class="col-md-7">
+    <form action="">
+       <div class="row">
+          <div class="col-xs-4 form-group">
+            <label for="firstName">Id :</label>
+            <input class="form-control" type="text" name="firstname" ng-model="tableC.currentDataset.city.id">
+          </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4 form-group">
-          <label for="email">Code :</label>
-          <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.newData.cities.code">
+        <div class="row">
+          <div class="col-xs-4 form-group">
+            <label for="email">Code :</label>
+            <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.currentDataset.city.basicInfo.name">
+          </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4 form-group">
-          <label for="email">Name :</label>
-          <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.newData.cities.name">
+        <div class="row">
+          <div class="col-xs-4 form-group">
+            <label for="email">Description :</label>
+            <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.currentDataset.city.basicInfo.description">
+          </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4 text-center">
-          <input class="btn btn-primary" value="Cancel" sref="portal.cities.list">
-        </div>
-        <div class="col-xs-4 text-center">
-          <input class="btn btn-success" value="Add" ng-click="tableC.submitAdd()">
-        </div>
-    </div>
-</form> 
+        <div class="row">
+            <div class="col-xs-4 text-center">
+              <!-- Hotel List table -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Events</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in tableC.currentDataset.city.hotelList">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.basicInfo.name }}</td>
+                    <td>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">View</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Edit</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 text-center">
+              <button class="btn btn-primary" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Add Hotel</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 text-center">
+              <button class="btn btn-primary" sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 text-center">
+              <button type="button" class="btn btn-primary" ng-click="tableC.submitAdd()">Save Changes</button>
+            </div>
+          </div>
+    </form> 
+  </div>
+  <div class="col-md-5">
+    <div class="full-width" ui-view="sub"></div>
+    <div class="full-width" ui-view="subcontent"></div>
+  </div>
 </div>
 
 

@@ -11,6 +11,7 @@
         .controller('portalCtrl', portalCtrl)
         .controller('unauthoCtrl', unauthoCtrl)
         .controller('tableCtrl', tableCtrl)
+        .controller('cityCtrl', cityCtrl)
         .controller('packageCtrl', packageCtrl);
     
     appCtrl.$inject = ['$rootScope', '$state', '$cookies'];
@@ -20,8 +21,10 @@
     portalCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData'];
     unauthoCtrl.$inject = ['$state'];
 
-    tableCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams'];
-    packageCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams'];
+    tableCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams', 'DataModels'];
+
+    cityCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams', 'DataModels'];
+    packageCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams', 'DataModels'];
 
     
     function appCtrl($rootScope, $state, $cookies){
@@ -139,7 +142,7 @@
         return self;
     };
 
-    function tableCtrl($rootScope, TableData, $state, CommonTableData, $stateParams){
+    function tableCtrl($rootScope, TableData, $state, CommonTableData, $stateParams, DataModels){
         var vm = {};
         
         var tableName = $stateParams.tableName;
@@ -206,7 +209,152 @@
         return vm;
     };
 
-    function packageCtrl($rootScope, TableData, $state, CommonTableData, $stateParams){
+    function cityCtrl($rootScope, TableData, $state, CommonTableData, $stateParams, DataModels){
+        var vm = {};
+        
+        var tableName = $stateParams.tableName;
+        vm.data = {};
+        vm.newData = {};
+        vm.selectedCityList = [];
+        vm.currentDataset = {
+            city : {},
+            hotel : {},
+            room : {}
+        };
+        vm.currentIndex = {
+            city : {},
+            hotel : {},
+            room : {}
+        };
+
+        vm.renderTable = function(tableName){
+            TableData.getFullTableContent(tableName).then(function(data) {
+                vm.data[tableName] = data;
+                CommonTableData.putData(data);
+                $state.go('portal.' + tableName);
+                $state.go('portal.' + tableName + '.list');
+            });
+        };
+
+        vm.viewBtn = function(index){
+            if(index != null || index != undefined){
+                vm.currentDataset[tableName] = vm.data[tableName][index];
+            }
+        };
+
+        vm.addBtn = function(){
+            vm.newData[tableName] = {};
+        };
+
+        vm.editBtn = function(index){
+            if(index != null || index != undefined){
+                vm.newData[tableName] = vm.data[tableName][index];
+            }
+        };
+        
+        vm.deleteBtn = function(index){
+            if(index != null || index != undefined){
+                vm.newData[tableName] = vm.data[tableName][index];
+            }
+        };
+        
+        vm.submitEdit = function(){
+            TableData.putTableContent(tableName, vm.newData[tableName]).then(function(data){
+                vm.renderTable(tableName)
+            });
+        };
+        
+        vm.submitAdd = function(){
+            TableData.postTableContent(tableName, vm.currentDataset.city).then(function(data){
+                console.log('Success - saved city!!!');
+                console.log(data);
+                vm.renderTable(tableName)
+                vm.tableFunctions.destroy('city');
+                $state.go('portal.cities.add.hotel');
+            });
+        };
+
+        vm.submitDelete = function(index){
+            if(index != null || index != undefined){
+                vm.newData[tableName] = vm.data[tableName][index];
+            }
+            TableData.deleteTableContent(tableName, vm.newData[tableName]._id).then(function(data){
+                vm.renderTable(tableName)
+            });
+        };
+
+        //create, destroy, save
+        vm.tableFunctions = {
+            create : function(name){
+                vm.currentDataset[name] = new DataModels[name]();
+            },
+            destroy : function(name){
+                vm.currentDataset[name] = {};
+            },
+            save : {
+                hotel : function(){
+                    vm.currentDataset.city.hotelList.push(vm.currentDataset.hotel);
+                    vm.tableFunctions.destroy('hotel');
+                },
+                room : function(){
+                    vm.currentDataset.hotel.roomList.push(vm.currentDataset.room);
+                    vm.tableFunctions.destroy('room');
+                }
+            }
+        };
+        
+        //view, edit
+        vm.tableEvents = {
+            view : {
+                city : function(index){
+                    if(index != null || index != undefined){
+                        vm.currentIndex.city = index;
+                        vm.currentDataset.city = vm.data[tableName][index];
+                    }
+                },
+                hotel : function(index){
+                    if(index != null || index != undefined){
+                        vm.currentIndex.hotel = index;
+                        vm.currentDataset.hotel = vm.currentDataset.city.hotelList[index];
+                    }
+                },
+                room : function(index){
+                    if(index != null || index != undefined){
+                        vm.currentIndex.room = index;
+                        vm.currentDataset.room = vm.currentDataset.hotel.roomList[index];
+                    }
+                }
+            },
+            edit : {
+                city : function(index){
+                    if(index != null || index != undefined){
+                        vm.currentIndex.city = index;
+                        vm.currentDataset.city = vm.data[tableName][index];
+                    }
+                },
+                hotel : function(index){
+                    if(index != null || index != undefined){
+                        vm.currentIndex.hotel = index;
+                        vm.currentDataset.hotel = vm.currentDataset.city.hotelList[index];
+                    }
+                },
+                room : function(index){
+                    if(index != null || index != undefined){
+                        vm.currentIndex.room = index;
+                        vm.currentDataset.room = vm.currentDataset.hotel.roomList[index];
+                    }
+                }
+            }
+        };
+
+        (function onInit(){
+            vm.renderTable(tableName);
+        })();
+
+        return vm;
+    };
+
+    function packageCtrl($rootScope, TableData, $state, CommonTableData, $stateParams, DataModels){
         var vm = {};
 
         var tableName = $stateParams.tableName;

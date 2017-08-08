@@ -1,0 +1,66 @@
+
+<div class="container-fluid">
+<form action="">
+   <div class="row">
+      <div class="col-xs-4 form-group">
+        <label for="firstName">Id :</label>
+        <input class="form-control" type="text" name="firstname" ng-model="tableC.currentDataset.hotel.id">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 form-group">
+        <label for="email">Code :</label>
+        <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.currentDataset.hotel.basicInfo.name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 form-group">
+        <label for="email">Description :</label>
+        <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.currentDataset.hotel.basicInfo.description">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-center">
+          <!-- Hotel List table -->
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Events</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in tableC.currentDataset.hotel.roomList">
+                <td>{{ item.id }}</td>
+                <td>{{ item.basicInfo.name }}</td>
+                <td>
+                  <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">View</button>
+                  <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Edit</button>
+                  <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-center">
+          <button class="btn btn-primary" ui-sref="portal.cities.add.hotel.addroom" ng-click="tableC.tableFunctions.create('room')">Add Room</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-center">
+          <button class="btn btn-primary" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-center">
+          <button class="btn btn-primary" type="button" ng-click="tableC.tableFunctions.save.hotel()">Save Changes</button>
+        </div>
+      </div>
+</form> 
+</div>
+
+
+

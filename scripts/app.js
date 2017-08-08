@@ -71,7 +71,7 @@
                     views: {
                         "content": {
                             templateUrl: 'tables/cities/home.html',
-                            controller: 'tableCtrl',
+                            controller: 'cityCtrl',
                             controllerAs: 'tableC'
                         }
                     }
@@ -125,7 +125,7 @@
                 //=======================
                //=============================
                 .state('portal.cities.list', {
-                    url: '/cities',
+                    url: '/list',
                     views: {
                         "crud": {
                             templateUrl: 'tables/cities/list.html'
@@ -153,6 +153,22 @@
                     views: {
                         "crud": {
                             templateUrl: 'tables/cities/add.html'
+                        }
+                    }
+                })
+                .state('portal.cities.add.hotel', {
+                    url: '/hotel',
+                    views: {
+                        "sub@portal.cities.add": {
+                            templateUrl: 'tables/cities/helpers/addHotel.html'
+                        }
+                    }
+                })
+                .state('portal.cities.add.hotel.addroom', {
+                    url: '/addRoom',
+                    views: {
+                        "subcontent@portal.cities.add": {
+                            templateUrl: 'tables/cities/helpers/addRoom.html'
                         }
                     }
                 })

@@ -1,0 +1,13 @@
+.full-width {
+	min-width: 100%;
+	height: 50%;
+	overflow: scroll;
+}
+
+html {
+	height: 100%
+}
+
+#contentArea {
+	min-height: 100% !important;
+}

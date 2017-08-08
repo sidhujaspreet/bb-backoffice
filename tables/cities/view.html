@@ -6,22 +6,40 @@
     <form action="">
         <div class="row">
             <div class="col-md-4 form-group">
-				<label class="form-control">Id : {{tableC.newData.cities.id}}</label>
+				<label class="form-control">Id : {{tableC.currentDataset.city.id}}</label>
 			</div>
 		</div>
 
         <div class="row">
             <div class="col-md-4 form-group">
-				<div class="form-control">Code : {{tableC.newData.cities.code}}</div>
+				<div class="form-control">Name : {{tableC.currentDataset.city.basicInfo.name}}</div>
 			</div>
 		</div>
 
         <div class="row">
             <div class="col-md-4 form-group">
-				<div class="form-control">Name : {{tableC.newData.cities.name}}</div>
+				<div class="form-control">Description : {{tableC.currentDataset.city.basicInfo.description}}</div>
 			</div>
 		</div>
 	</form>
+
+	<table class="table table-hover">
+	  <thead>
+	    <tr>
+	      <th>Id</th>
+	      <th>Name</th>
+	      <th>Events</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="item in tableC.currentDataset.city.hotelList">
+	      <td>item.id</td>
+	      <td>item.basicInfo.name</td>
+	      <td>
+	      	<button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">View Room</button></td>
+	    </tr>
+	    </tbody>
+    </table>
 
 	<button class="btn btn-default" ui-sref="portal.cities.list">Back</button>
 </div>

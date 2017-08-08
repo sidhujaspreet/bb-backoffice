@@ -1,0 +1,24 @@
+
+<div class="container-fluid">
+<form action="">
+   <div class="row">
+      <div class="col-xs-4 form-group">
+        <label for="firstName">Id :</label>
+        <input class="form-control" type="text" name="Id" ng-model="tableC.currentDataset.room.id">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 text-center">
+        <button class="btn btn-primary" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 text-center">
+        <button class="btn btn-primary" type="button" ng-click="tableC.tableFunctions.save.room()">Save Changes</button>
+      </div>
+    </div>
+</form> 
+</div>
+
+
+
