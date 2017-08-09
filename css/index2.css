@@ -1,13 +1,55 @@
+html {
+	height: 100%;
+    overflow: scroll;
+}
+
 .full-width {
 	min-width: 100%;
 	height: 50%;
 	overflow: scroll;
 }
 
-html {
-	height: 100%
+body {
+	height: 80%;
 }
 
 #contentArea {
 	min-height: 100% !important;
 }
+
+#add-section {
+	height: 100%;
+	overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+/*
+.slide {
+    position: absolute;
+    left: 22%;
+    top: 10%;
+    width: 78%;
+    height: 500px;
+}
+.slide.ng-enter,
+.slide.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slide.ng-enter {
+    left: 100%;
+}
+.slide.ng-enter-active {
+    left: 0;
+}
+.slide.ng-leave {
+    left: 0;
+}
+.slide.ng-leave-active {
+    left: -100%;
+}
+*/

@@ -153,6 +153,12 @@
                     views: {
                         "crud": {
                             templateUrl: 'tables/cities/add.html'
+                        },
+                        "sub@portal.cities.add": {
+                            template: ''
+                        },
+                        "subcontent@portal.cities.add": {
+                            template: ''
                         }
                     }
                 })
@@ -161,6 +167,9 @@
                     views: {
                         "sub@portal.cities.add": {
                             templateUrl: 'tables/cities/helpers/addHotel.html'
+                        },
+                        "subcontent@portal.cities.add": {
+                            template: ''
                         }
                     }
                 })

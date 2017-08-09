@@ -1,6 +1,212 @@
 
-<div class="container-fluid">
-<form action="">
+<div class="container-fluid row">
+<h2>Hotel Info</h2>
+    <div class="form-horizontal row jumbotron">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Hotel Id</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.id" placeholder="Hotel Id">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.basicInfo.name" placeholder="Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Thumbnail</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.basicInfo.thumbnail" placeholder="Thumbnail">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Description</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.basicInfo.description" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">User Rating</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.userRating" placeholder="User Rating">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Star Rating</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.starRating" placeholder="Star Rating">
+        </div>
+      </div>
+      <div class="form-group">
+        <span class="col-sm-1"></span>
+        <button type="button" class="btn btn-info btn-md col-sm-3 text-center" data-toggle="modal" data-target="#hotelAddress">Add Address</button>
+        <span class="col-sm-1"></span>
+        <button type="button" class="btn btn-info btn-md col-sm-3 text-center" data-toggle="modal" data-target="#hotelPrice">Add Price</button>
+        <span class="col-sm-1"></span>
+        <button class="btn btn-info btn-md col-sm-3 text-center" ui-sref="portal.cities.add.hotel.addroom" ng-click="tableC.tableFunctions.create('room')">Add Room</button>
+      </div>
+    </div>
+    
+
+    <!-- Hotel Address modal starts -->
+    <div id="hotelAddress" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Hotel Address</h4>
+          </div>
+          <div class="modal-body jumbotron">
+            <div class="form-horizontal row">
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Address Line 1</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.address.address1" placeholder="Line 1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Address Line 2</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.address.address2" placeholder="Line 2">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">City</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.address.city" placeholder="Code">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">State</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.address.state" placeholder="State">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Zip Code</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.address.zipCode" placeholder="Zip Code">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Country</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.address.country" placeholder="Country">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Landmark</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.address.landmark" placeholder="Landmark">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hotel Address modal ends -->
+
+    <!-- Hotel Price modal starts -->
+    <div id="hotelPrice" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Hotel Price</h4>
+          </div>
+          <div class="modal-body jumbotron">
+            <div class="form-horizontal row">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Total Actual</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.price.totalActual" placeholder="Total Actual">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Total Discounted</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.price.totalDiscounted" placeholder="Total Discounted">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Adult Actual</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.price.adultActual" placeholder="Adult Actual">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Adult Discounted</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.price.adultDiscounted" placeholder="Adult Discounted">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Child Actual</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.price.childActual" placeholder="Child Actual">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Child Discounted</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.price.childDiscounted" placeholder="Child Discounted">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hotel Price modal ends -->
+
+        <div class="row" ng-show="tableC.currentDataset.hotel.roomList.length > 0">
+            <div class="col-xs-12 text-center">
+              <!-- Hotel List table -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Room Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Events</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in tableC.currentDataset.hotel.roomList">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.basicInfo.name }}</td>
+                    <td>{{ item.basicInfo.description }}</td>
+                    <td>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">View</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Edit</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <span class="col-sm-1"></span>
+            <button class="btn btn-success btn-md col-sm-3 text-center pull-right" type="button" ui-sref="portal.cities.add" ng-click="tableC.tableFunctions.save.hotel()">Save Changes</button>
+            <span class="col-sm-1 pull-right"></span>
+            <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+        </div>
+
+<!--<form action="">
    <div class="row">
       <div class="col-xs-4 form-group">
         <label for="firstName">Id :</label>
@@ -21,7 +227,7 @@
     </div>
     <div class="row">
         <div class="col-xs-4 text-center">
-          <!-- Hotel List table -->
+          <!-- Hotel List table ->
           <table class="table table-hover">
             <thead>
               <tr>
@@ -59,7 +265,7 @@
           <button class="btn btn-primary" type="button" ng-click="tableC.tableFunctions.save.hotel()">Save Changes</button>
         </div>
       </div>
-</form> 
+</form>--> 
 </div>
 
 

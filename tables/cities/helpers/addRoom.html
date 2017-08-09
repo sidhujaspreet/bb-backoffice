@@ -1,5 +1,49 @@
+<div class="container-fluid row">
+  <h2>Room Info</h2>
+  <div class="form-horizontal row jumbotron">
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Room Id</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" ng-model="tableC.currentDataset.room.id" placeholder="Room Id">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Name</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" ng-model="tableC.currentDataset.room.basicInfo.name" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Thumbnail</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" ng-model="tableC.currentDataset.room.basicInfo.thumbnail" placeholder="Thumbnail">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Description</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" ng-model="tableC.currentDataset.room.basicInfo.description" placeholder="Description">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Type</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" ng-model="tableC.currentDataset.room.type" placeholder="Type">
+      </div>
+    </div>
+  </div>
 
-<div class="container-fluid">
+  <div class="form-group">
+      <span class="col-sm-1"></span>
+      <button class="btn btn-success btn-md col-sm-3 text-center pull-right" type="button" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.save.room()">Save Changes</button>
+      <span class="col-sm-1 pull-right"></span>
+      <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+  </div>
+</div>
+    
+
+    <!-- Hotel Price modal ends -->
+<!--<div class="container-fluid">
 <form action="">
    <div class="row">
       <div class="col-xs-4 form-group">
@@ -18,7 +62,7 @@
       </div>
     </div>
 </form> 
-</div>
+</div>-->
 
 
 
