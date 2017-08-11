@@ -173,11 +173,41 @@
                         }
                     }
                 })
+                .state('portal.cities.add.viewhotel', {
+                    url: '/viewhotel',
+                    views: {
+                        "sub@portal.cities.add": {
+                            templateUrl: 'tables/cities/helpers/viewHotel.html'
+                        },
+                        "subcontent@portal.cities.add": {
+                            template: ''
+                        }
+                    }
+                })
+                .state('portal.cities.add.viewhotel.viewroom', {
+                    url: '/viewroom',
+                    views: {
+                        "sub@portal.cities.add": {
+                            templateUrl: 'tables/cities/helpers/viewHotel.html'
+                        },
+                        "subcontent@portal.cities.add": {
+                            templateUrl: 'tables/cities/helpers/viewRoom.html'
+                        }
+                    }
+                })
                 .state('portal.cities.add.hotel.addroom', {
                     url: '/addRoom',
                     views: {
                         "subcontent@portal.cities.add": {
                             templateUrl: 'tables/cities/helpers/addRoom.html'
+                        }
+                    }
+                })
+                .state('portal.cities.add.hotel.viewroom', {
+                    url: '/viewRoom',
+                    views: {
+                        "subcontent@portal.cities.add": {
+                            templateUrl: 'tables/cities/helpers/viewRoom.html'
                         }
                     }
                 })
@@ -229,7 +259,8 @@
     
         .run(['$rootScope', '$location', '$http', '$state', '$cookies', 'Permission', function($rootScope, $location, $http, $state, $cookies, Permission) {
             // keep user logged in after page refresh
-
+            $rootScope.$state = $state;
+            
             $rootScope.$on('$locationChangeStart', function (event, next, current) {
                 // redirect to login page if not logged in and trying to access a restricted page
                 //var canAccess = 

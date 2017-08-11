@@ -1,5 +1,5 @@
 <div class="container-fluid row">
-  <h2>Room Info</h2>
+  <h3>Room Info</h3>
   <div class="form-horizontal row jumbotron">
     <div class="form-group">
       <label class="col-sm-3 control-label">Room Id</label>
@@ -37,32 +37,6 @@
       <span class="col-sm-1"></span>
       <button class="btn btn-success btn-md col-sm-3 text-center pull-right" type="button" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.save.room()">Save Changes</button>
       <span class="col-sm-1 pull-right"></span>
-      <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+      <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.destroy('room')">Cancel</button>
   </div>
 </div>
-    
-
-    <!-- Hotel Price modal ends -->
-<!--<div class="container-fluid">
-<form action="">
-   <div class="row">
-      <div class="col-xs-4 form-group">
-        <label for="firstName">Id :</label>
-        <input class="form-control" type="text" name="Id" ng-model="tableC.currentDataset.room.id">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 text-center">
-        <button class="btn btn-primary" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 text-center">
-        <button class="btn btn-primary" type="button" ng-click="tableC.tableFunctions.save.room()">Save Changes</button>
-      </div>
-    </div>
-</form> 
-</div>-->
-
-
-

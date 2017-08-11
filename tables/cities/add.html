@@ -3,7 +3,7 @@
 <div class="container-fluid row">
   <div class="col-md-7" id="add-section">
 
-  <h2>City Info</h2>
+  <h3>City Info</h3>
     <div class="form-horizontal row jumbotron">
       <div class="form-group">
         <label class="col-sm-3 control-label">City Id</label>
@@ -83,7 +83,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
           </div>
         </div>
       </div>
@@ -110,9 +110,9 @@
                     <td>{{ item.code }}</td>
                     <td>{{ item.basicInfo.description }}</td>
                     <td>
-                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">View</button>
-                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Edit</button>
-                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Delete</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.viewhotel" ng-click="tableC.tableEvents.view.hotel($index)">View</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableEvents.edit.hotel($index)">Edit</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ng-click="tableC.tableEvents.delete.hotel($index)">Delete</button>
                     </td>
                   </tr>
                 </tbody>
@@ -124,24 +124,9 @@
             <span class="col-sm-1"></span>
             <button class="btn btn-success btn-md col-sm-2 text-center pull-right" ng-click="tableC.submitAdd()">Save City</button>
             <span class="col-sm-1 pull-right"></span>
-            <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+            <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.list" ng-click="tableC.tableFunctions.destroy('city')">Cancel</button>
         </div>
 
-          <!--<div class="row">
-            <div class="col-xs-4 text-center">
-              <button class="btn btn-primary" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Add Hotel</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-4 text-center">
-              <button class="btn btn-primary" sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-4 text-center">
-              <button type="button" class="btn btn-primary" ng-click="tableC.submitAdd()">Save Changes</button>
-            </div>
-          </div>-->
     </form> 
   </div>
   <div class="col-md-5">

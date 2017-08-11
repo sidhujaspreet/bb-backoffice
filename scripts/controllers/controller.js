@@ -270,7 +270,6 @@
                 console.log(data);
                 vm.renderTable(tableName)
                 vm.tableFunctions.destroy('city');
-                $state.go('portal.cities.add.hotel');
             });
         };
 
@@ -328,21 +327,39 @@
             edit : {
                 city : function(index){
                     if(index != null || index != undefined){
-                        vm.currentIndex.city = index;
+                        vm.currentIndex.city = index;                        
                         vm.currentDataset.city = vm.data[tableName][index];
                     }
                 },
                 hotel : function(index){
                     if(index != null || index != undefined){
                         vm.currentIndex.hotel = index;
-                        vm.currentDataset.hotel = vm.currentDataset.city.hotelList[index];
+                        if(vm.currentDataset.city.hotelList[index] && vm.currentDataset.city.hotelList[index].id == vm.currentDataset.hotel.id) {
+                            vm.currentDataset.city.hotelList.splice(index, 1, vm.currentDataset.hotel);
+                        } else {
+                            vm.currentDataset.hotel = vm.currentDataset.city.hotelList[index];
+                        }
                     }
                 },
                 room : function(index){
                     if(index != null || index != undefined){
                         vm.currentIndex.room = index;
-                        vm.currentDataset.room = vm.currentDataset.hotel.roomList[index];
+                        if(vm.currentDataset.hotel.roomList[index] && vm.currentDataset.hotel.roomList[index].id == vm.currentDataset.room.id) {
+                            vm.currentDataset.hotel.roomList.splice(index, 1, vm.currentDataset.room);
+                        } else {
+                            vm.currentDataset.room = vm.currentDataset.hotel.roomList[index];
+                        }
                     }
+                }
+            },
+            delete : {
+                hotel : function(index){
+                    vm.currentDataset.city.hotelList.splice(index, 1);
+                    vm.tableFunctions.destroy('hotel');
+                },
+                room : function (index) {
+                    vm.currentDataset.hotel.roomList.splice(index, 1);
+                    vm.tableFunctions.destroy('room');
                 }
             }
         };

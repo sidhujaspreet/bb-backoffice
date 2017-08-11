@@ -1,0 +1,168 @@
+
+<div class="container-fluid row">
+<h3>Hotel Info</h3>
+    <div class="form-horizontal row jumbotron">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Hotel Id : </label>
+        <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.id}} </label>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Name : </label>
+        <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.basicInfo.name}} </label>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Thumbnail : </label>
+        <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.basicInfo.thumbnail}} </label>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Description : </label>
+        <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.basicInfo.description}} </label>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">User Rating : </label>
+        <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.userRating}} </label>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Star Rating : </label>
+        <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.starRating}} </label>
+      </div>
+      <div class="form-group">
+        <span class="col-sm-1"></span>
+        <button type="button" class="btn btn-info btn-md col-sm-3 text-center" data-toggle="modal" data-target="#hotelAddress">View Address</button>
+        <span class="col-sm-1"></span>
+        <button type="button" class="btn btn-info btn-md col-sm-3 text-center" data-toggle="modal" data-target="#hotelPrice">View Price</button>
+        <span class="col-sm-1"></span>
+      </div>
+    </div>
+    
+
+    <!-- Hotel Address modal starts -->
+    <div id="hotelAddress" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Hotel Address</h4>
+          </div>
+          <div class="modal-body jumbotron">
+            <div class="form-horizontal row">
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Address Line 1</label>
+                <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.address.address1}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Address Line 2</label>
+                <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.address.address2}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">City</label>
+                <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.address.city}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">State</label>
+                <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.address.state}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Zip Code</label>
+                <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.address.zipCode}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Country</label>
+                <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.address.country}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Landmark</label>
+                <label class="col-sm-7 control-label"> {{tableC.currentDataset.hotel.address.landmark}} </label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hotel Address modal ends -->
+
+    <!-- Hotel Price modal starts -->
+    <div id="hotelPrice" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Hotel Price</h4>
+          </div>
+          <div class="modal-body jumbotron">
+            <div class="form-horizontal row">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Total Actual : </label>
+                <label class="col-sm-8 control-label"> {{tableC.currentDataset.hotel.price.totalActual}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Total Discounted : </label>
+                <label class="col-sm-8 control-label"> {{tableC.currentDataset.hotel.price.totalDiscounted}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Adult Actual : </label>
+                <label class="col-sm-8 control-label"> {{tableC.currentDataset.hotel.price.adultActual}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Adult Discounted : </label>
+                <label class="col-sm-8 control-label"> {{tableC.currentDataset.hotel.price.adultDiscounted}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Child Actual : </label>
+                <label class="col-sm-8 control-label"> {{tableC.currentDataset.hotel.price.childActual}} </label>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">Child Discounted : </label>
+                <label class="col-sm-8 control-label"> {{tableC.currentDataset.hotel.price.childDiscounted}} </label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hotel Price modal ends -->
+
+        <div class="row" ng-show="tableC.currentDataset.hotel.roomList.length > 0">
+            <div class="col-xs-12 text-center">
+              <!-- Hotel List table -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Room Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Events</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in tableC.currentDataset.hotel.roomList">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.basicInfo.name }}</td>
+                    <td>{{ item.basicInfo.description }}</td>
+                    <td>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.viewhotel.viewroom" ng-click="tableC.tableEvents.view.room($index)">View</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <span class="col-sm-1"></span>
+            <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add">Done</button>
+        </div>
+</div>
+
+
+

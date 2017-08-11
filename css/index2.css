@@ -22,6 +22,10 @@ body {
 	overflow: scroll;
 }
 
+#viewRoom .col-sm-7 {
+    text-align: left;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */

@@ -1,6 +1,6 @@
 
 <div class="container-fluid row">
-<h2>Hotel Info</h2>
+<h3>Hotel Info</h3>
     <div class="form-horizontal row jumbotron">
       <div class="form-group">
         <label class="col-sm-3 control-label">Hotel Id</label>
@@ -106,7 +106,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
           </div>
         </div>
       </div>
@@ -189,9 +189,9 @@
                     <td>{{ item.basicInfo.name }}</td>
                     <td>{{ item.basicInfo.description }}</td>
                     <td>
-                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">View</button>
-                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Edit</button>
-                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Delete</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.hotel.viewroom" ng-click="tableC.tableEvents.view.room($index)">View</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.hotel.addroom" ng-click="tableC.tableEvents.edit.room($index)">Edit</button>
+                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ng-click="tableC.tableEvents.delete.room($index)">Delete</button>
                     </td>
                   </tr>
                 </tbody>
@@ -203,69 +203,8 @@
             <span class="col-sm-1"></span>
             <button class="btn btn-success btn-md col-sm-3 text-center pull-right" type="button" ui-sref="portal.cities.add" ng-click="tableC.tableFunctions.save.hotel()">Save Changes</button>
             <span class="col-sm-1 pull-right"></span>
-            <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
+            <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add" ng-click="tableC.tableFunctions.destroy('hotel')">Cancel</button>
         </div>
-
-<!--<form action="">
-   <div class="row">
-      <div class="col-xs-4 form-group">
-        <label for="firstName">Id :</label>
-        <input class="form-control" type="text" name="firstname" ng-model="tableC.currentDataset.hotel.id">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 form-group">
-        <label for="email">Code :</label>
-        <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.currentDataset.hotel.basicInfo.name">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 form-group">
-        <label for="email">Description :</label>
-        <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.currentDataset.hotel.basicInfo.description">
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4 text-center">
-          <!-- Hotel List table ->
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Events</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="item in tableC.currentDataset.hotel.roomList">
-                <td>{{ item.id }}</td>
-                <td>{{ item.basicInfo.name }}</td>
-                <td>
-                  <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">View</button>
-                  <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Edit</button>
-                  <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view({cityid : tableC.currentDataset.city.id})" ng-click="tableC.tableEvents.view.hotel($index)">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4 text-center">
-          <button class="btn btn-primary" ui-sref="portal.cities.add.hotel.addroom" ng-click="tableC.tableFunctions.create('room')">Add Room</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4 text-center">
-          <button class="btn btn-primary" ui-sref="portal.cities.add.hotel" ng-click="tableC.tableFunctions.create('hotel')">Cancel</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4 text-center">
-          <button class="btn btn-primary" type="button" ng-click="tableC.tableFunctions.save.hotel()">Save Changes</button>
-        </div>
-      </div>
-</form>--> 
 </div>
 
 
