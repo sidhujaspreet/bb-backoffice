@@ -150,7 +150,8 @@
                     <td>{{ item.basicInfo.name }}</td>
                     <td>{{ item.basicInfo.description }}</td>
                     <td>
-                      <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.viewhotel.viewroom" ng-click="tableC.tableEvents.view.room($index)">View</button>
+                      <button ng-show="$state.is('portal.cities.add.viewhotel')" class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.viewhotel.viewroom" ng-click="tableC.tableEvents.view.room($index)">View</button>
+                      <button ng-show="$state.is('portal.cities.view.viewhotel')" class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.view.viewhotel.viewroom" ng-click="tableC.tableEvents.view.room($index)">View</button>
                     </td>
                   </tr>
                 </tbody>
@@ -160,7 +161,8 @@
 
           <div class="form-group">
             <span class="col-sm-1"></span>
-            <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add">Done</button>
+            <button ng-show="$state.is('portal.cities.add.viewhotel')" type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.add">Done</button>
+            <button ng-show="$state.is('portal.cities.view.viewhotel')" type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.view">Done</button>
         </div>
 </div>
 

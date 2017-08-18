@@ -1,5 +1,5 @@
 
-<div class="container-fluid row">
+<div class="container-fluid row" id="addHotel">
 <h3>Hotel Info</h3>
     <div class="form-horizontal row jumbotron">
       <div class="form-group">
@@ -37,6 +37,14 @@
         <div class="col-sm-7">
           <input type="text" class="form-control" ng-model="tableC.currentDataset.hotel.starRating" placeholder="Star Rating">
         </div>
+      </div>
+      <div class="form-group">
+        <input class="col-sm-3 check-box" type="checkbox" ng-model="tableC.currentDataset.hotel.selection.isEnabled">
+        <label class="col-sm-7 control-label checkbox-label">Is Enabled</label>
+      </div>
+      <div class="form-group">
+        <input class="col-sm-3 check-box" type="checkbox" ng-model="tableC.currentDataset.hotel.selection.isSelected">
+        <label class="col-sm-7 control-label checkbox-label">Is Selected</label>
       </div>
       <div class="form-group">
         <span class="col-sm-1"></span>

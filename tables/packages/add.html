@@ -1,33 +1,175 @@
 
-<div class="container-fluid">
-<form action="">
-    <div class="row">
-        <div class="col-xs-4 form-group">
-          <label for="firstName">Id :</label>
-          <input class="form-control" type="text" name="firstname" ng-model="tableC.newData.cities.id">
+
+<div class="container-fluid row" id="add_package">
+  <div class="col-md-7" id="add-section">
+
+    <h3>Package Info</h3>
+    <div class="form-horizontal row jumbotron">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Package Id</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.id" placeholder="City Id">
         </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.basicInfo.name" placeholder="Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Thumbnail</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.basicInfo.thumbnail" placeholder="Thumbnail">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Description</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.basicInfo.description" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Duration - Days</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.duration.days" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Duration - Nights</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.duration.nights" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Duration - Type</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.duration.type" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Validity - from</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.validity.from" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Validity - from</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" ng-model="packageC.currentDataset.package.validity.to" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <span class="col-sm-2"></span>
+        <button type="button" class="btn btn-info btn-md col-sm-3 text-center" data-toggle="modal" data-target="#packagePrice">Add Price</button>
+        <span class="col-sm-1"></span>
+        <!--<div ng-dropdown-multiselect="" options="packageC.currentDataset.cityList" selected-model="packageC.currentDataset.package.cityList" checkboxes="true" extra-settings="packageC.multiselectsettings"></div>-->
+        <div ng-dropdown-multiselect="" options="packageC.currentDataset.cityList" selected-model="packageC.selectedTest" extra-settings="packageC.multiselectsettings"></div>
+      </div>
+      </hr>
+      {{packageC.selectedTest}}      
+
+      <!-- Package Price modal starts -->
+      <div id="packagePrice" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Package Price</h4>
+            </div>
+            <div class="modal-body jumbotron">
+              <div class="form-horizontal row">
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Total Actual</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" ng-model="packageC.currentDataset.package.price.totalActual" placeholder="Total Actual">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Total Discounted</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" ng-model="packageC.currentDataset.package.price.totalDiscounted" placeholder="Total Discounted">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Adult Actual</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" ng-model="packageC.currentDataset.package.price.adultActual" placeholder="Adult Actual">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Adult Discounted</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" ng-model="packageC.currentDataset.package.price.adultDiscounted" placeholder="Adult Discounted">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Child Actual</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" ng-model="packageC.currentDataset.package.price.childActual" placeholder="Child Actual">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Child Discounted</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" ng-model="packageC.currentDataset.package.price.childDiscounted" placeholder="Child Discounted">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Package Price modal ends -->
+
+          <div class="row" ng-show="packageC.currentDataset.package.cityList.length > 0">
+              <div class="col-xs-12 text-center">
+                <!-- Hotel List table -->
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Hotel Id</th>
+                      <th>Name</th>
+                      <th>Code</th>
+                      <th>Description</th>
+                      <th>Events</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="item in packageC.currentDataset.package.cityList">
+                      <td>{{ item.id }}</td>
+                      <td>{{ item.basicInfo.name }}</td>
+                      <td>{{ item.code }}</td>
+                      <td>{{ item.basicInfo.description }}</td>
+                      <td>
+                        <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.viewhotel" ng-click="packageC.tableEvents.view.hotel($index)">View</button>
+                        <button class="btn btn-default" has-permission="appC.roleUserAdmin" ui-sref="portal.cities.add.hotel" ng-click="packageC.tableEvents.edit.hotel($index)">Edit</button>
+                        <button class="btn btn-default" has-permission="appC.roleUserAdmin" ng-click="packageC.tableEvents.delete.hotel($index)">Delete</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          <div class="form-group">
+              <span class="col-sm-1"></span>
+              <button class="btn btn-success btn-md col-sm-2 text-center pull-right" ng-click="packageC.submitAdd()">Save City</button>
+              <span class="col-sm-1 pull-right"></span>
+              <button type="button" class="btn btn-basic btn-md col-sm-2 text-center pull-right" ui-sref="portal.cities.list" ng-click="packageC.tableFunctions.destroy('city')">Cancel</button>
+          </div>
+
     </div>
-    <div class="row">
-        <div class="col-xs-4 form-group">
-          <label for="email">Code :</label>
-          <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.newData.cities.code">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4 form-group">
-          <label for="email">Name :</label>
-          <input class="form-control" class="form-control" type="text" name="lastname" ng-model="tableC.newData.cities.name">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4 text-center">
-          <input class="btn btn-primary" value="Cancel" sref="portal.cities.list">
-        </div>
-        <div class="col-xs-4 text-center">
-          <input class="btn btn-success" value="Add" ng-click="tableC.submitAdd()">
-        </div>
-    </div>
-</form> 
+  </div>
+  <div class="col-md-5">
+    <div class="full-width" ui-view="sub"></div>
+    <div class="full-width" ui-view="subcontent"></div>
+  </div>
 </div>
 
 

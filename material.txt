@@ -1,0 +1,4 @@
+<div ng-dropdown-multiselect="" options="example14data" selected-model="example14model" checkboxes="true" extra-settings="example14settings"></div> 
+
+https://jsfiddle.net/michaeldeongreen/22et6sao/9/
+

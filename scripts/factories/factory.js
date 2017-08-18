@@ -198,6 +198,10 @@
         function Room(){
             this.id = '';
             this.type = '';
+            this.selection = {
+                isEnabled : true,
+                isSelected : false
+            };
             this.basicInfo = {
                 name : '',
                 description: '',

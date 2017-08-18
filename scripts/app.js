@@ -8,7 +8,7 @@
             'ui.router',
             'ngCookies',
             'base64',   
-            'btorfs.multiselect',
+            'angularjs-dropdown-multiselect',
             'gofarModule.gofarControllers',
             'gofarModule.gofarDirectives',
             'gofarModule.gofarServices',
@@ -145,6 +145,28 @@
                     views: {
                         "crud": {
                             templateUrl: 'tables/cities/view.html'
+                        }
+                    }
+                })
+                .state('portal.cities.view.viewhotel', {
+                    url: '/viewhotel',
+                    views: {
+                        "sub@portal.cities.view": {
+                            templateUrl: 'tables/cities/helpers/viewHotel.html'
+                        },
+                        "subcontent@portal.cities.view": {
+                            template: ''
+                        }
+                    }
+                })
+                .state('portal.cities.view.viewhotel.viewroom', {
+                    url: '/viewroom',
+                    views: {
+                        "sub@portal.cities.view": {
+                            templateUrl: 'tables/cities/helpers/viewHotel.html'
+                        },
+                        "subcontent@portal.cities.view": {
+                            templateUrl: 'tables/cities/helpers/viewRoom.html'
                         }
                     }
                 })
