@@ -393,7 +393,16 @@
         };
         vm.multiselectCityEvents = {
             onSelectionChanged: function(){
-                vm.currentDataset.package.cityList = vm.selectedCityList;
+                vm.currentDataset.package.cityList = angular.copy(vm.selectedCityList);
+                angular.forEach(vm.currentDataset.package.cityList, function(value, key) {
+                    value.hotelList = [];
+                });
+                console.log(vm.currentDataset.package.cityList);
+            }
+        };
+        vm.multiselectHotelEvents = {
+            onSelectionChanged: function(){
+                vm.currentDataset.package.cityList[vm.currentIndex.city].hotelList = vm.selectedHotelList;
             }
         };
 
@@ -430,20 +439,19 @@
             hotel : {},
             room : {}
         };
+        vm.contentList = {
+            city : [],
+            hotel : [],
+            room : []
+        }
 
         vm.renderTable = function(tableName){
             TableData.getFullTableContent(tableName).then(function(data) {
-                vm.data[tableName] = data;
+                //vm.data[tableName] = data;
+                vm.currentDataset.package = data;
                 CommonTableData.putData(data);
                 $state.go('portal.' + tableName);
                 $state.go('portal.' + tableName + '.list');
-            });
-            TableData.getFullTableContent('cities').then(function(data) {
-                //vm.data[cities] = data;
-                vm.currentDataset.cityList = data;
-                console.log("============");
-                console.log(vm.currentDataset.cityList);
-                console.log("============");
             });
         };
 
@@ -497,6 +505,15 @@
         vm.tableFunctions = {
             create : function(name){
                 vm.currentDataset[name] = new DataModels[name]();
+                if(name == 'package') {                    
+                    TableData.getFullTableContent('cities').then(function(data) {
+                        //vm.data[cities] = data;
+                        vm.contentList.city = data;
+                        console.log("============");
+                        console.log(vm.contentList.city);
+                        console.log("============");
+                    });
+                }
             },
             destroy : function(name){
                 vm.currentDataset[name] = {};
@@ -519,7 +536,11 @@
                 city : function(index){
                     if(index != null || index != undefined){
                         vm.currentIndex.city = index;
-                        vm.currentDataset.city = vm.data[tableName][index];
+                        angular.forEach(vm.contentList.city, function(value, key){
+                            if(vm.currentDataset.package.cityList[index]._id === value._id) {
+                                vm.currentDataset.city = angular.copy(value);
+                            }
+                        });
                     }
                 },
                 hotel : function(index){

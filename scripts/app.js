@@ -267,6 +267,14 @@
                         }
                     }
                 })
+                .state('portal.packages.add.viewCity', {
+                    url: '/viewCity',
+                    views: {
+                        "sub@portal.packages.add": {
+                            templateUrl: 'tables/packages/helpers/viewCity.html'
+                        }
+                    }
+                })
                 //=======================
             
                 .state('unauthorized', {
