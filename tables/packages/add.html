@@ -64,10 +64,10 @@
         <button type="button" class="btn btn-info btn-md col-sm-3 text-center" data-toggle="modal" data-target="#packagePrice">Add Price</button>
         <span class="col-sm-1"></span>
         <!--<div ng-dropdown-multiselect="" options="packageC.currentDataset.cityList" selected-model="packageC.currentDataset.package.cityList" checkboxes="true" extra-settings="packageC.multiselectsettings"></div>-->
-        <div ng-dropdown-multiselect="" options="packageC.currentDataset.cityList" selected-model="packageC.selectedTest" extra-settings="packageC.multiselectsettings"></div>
+        <div ng-dropdown-multiselect="" options="packageC.currentDataset.cityList" selected-model="packageC.selectedCityList" extra-settings="packageC.multiselectCitySettings" events="packageC.multiselectCityEvents"></div>
       </div>
       </hr>
-      {{packageC.selectedTest}}      
+      {{packageC.selectedCityList}}      
 
       <!-- Package Price modal starts -->
       <div id="packagePrice" class="modal fade" role="dialog">

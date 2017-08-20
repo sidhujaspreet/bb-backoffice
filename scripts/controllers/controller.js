@@ -376,11 +376,25 @@
         
         var tableName = $stateParams.tableName;
 
-        vm.multiselectsettings = {
+        vm.multiselectCitySettings = {
             displayProp: 'code',
+            buttonDefaultText: 'Select Cities',
             scrollableHeight: '200px',
             scrollable: true,
-            enableSearch: true
+            styleActive: true,
+            enableSearch: true,
+            keyboardControls: true,
+            smartButtonMaxItems: 10,
+            selectedToTop: true,
+            externalIdProp: '',
+            smartButtonTextConverter: function(itemText, originalItem) { 
+                return itemText; 
+            }
+        };
+        vm.multiselectCityEvents = {
+            onSelectionChanged: function(){
+                vm.currentDataset.package.cityList = vm.selectedCityList;
+            }
         };
 
         vm.test = [
@@ -403,11 +417,13 @@
         vm.data = {};
         vm.newData = {};
         vm.selectedCityList = [];
+        vm.selectedHotelList = [];
+        vm.selectedRoomList = [];
         vm.currentDataset = {
+            package : {},
             city : {},
             hotel : {},
-            room : {},
-            cityList : []
+            room : {}
         };
         vm.currentIndex = {
             city : {},
