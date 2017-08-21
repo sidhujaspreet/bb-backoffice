@@ -28,7 +28,7 @@
         <span class="col-sm-2"></span>
         <button type="button" class="btn btn-info btn-md col-sm-3 text-center" data-toggle="modal" data-target="#cityAddress">View Address</button>
         <span class="col-sm-1"></span>
-        <div ng-dropdown-multiselect="" options="packageC.currentDataset.city.hotelList" selected-model="packageC.selectedHotelList" extra-settings="packageC.multiselectCitySettings" events="packageC.multiselectHotelEvents"></div>
+        <div ng-dropdown-multiselect="" options="packageC.currentDataset.city.hotelList" selected-model="packageC.selectedHotelList" extra-settings="packageC.multiselectHotelSettings" events="packageC.multiselectHotelEvents"></div>
       </div>
     </div>
     
@@ -85,7 +85,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="item in packageC.currentDataset.city.hotelList">
+                  <tr ng-repeat="item in packageC.selectedHotelList">
                     <td>{{ item.id }}</td>
                     <td>{{ item.basicInfo.name }}</td>
                     <td>{{ item.code }}</td>

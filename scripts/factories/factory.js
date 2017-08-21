@@ -19,7 +19,7 @@
     CommonTableData.$inject = [];
 
     function TableData($http) {
-        var commonUrl = "http://localhost:2000/";
+        var commonUrl = "http://localhost:3000/";
         return {
             getTableList: function() {
                 return $http.get(commonUrl + "tableNames")
@@ -84,7 +84,7 @@
 
     function UserService($http, $rootScope, $base64) {
 
-        var commonUrl = 'http://localhost:2000/';
+        var commonUrl = 'http://localhost:3000/';
         var service = {};
 
         service.login = Login;

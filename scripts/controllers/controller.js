@@ -24,7 +24,7 @@
     tableCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams', 'DataModels'];
 
     cityCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams', 'DataModels'];
-    packageCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams', 'DataModels'];
+    packageCtrl.$inject = ['$rootScope', 'TableData', '$state', 'CommonTableData', '$stateParams', 'DataModels', '$filter'];
 
     
     function appCtrl($rootScope, $state, $cookies){
@@ -371,13 +371,28 @@
         return vm;
     };
 
-    function packageCtrl($rootScope, TableData, $state, CommonTableData, $stateParams, DataModels){
+    function packageCtrl($rootScope, TableData, $state, CommonTableData, $stateParams, DataModels, $filter){
         var vm = {};
         
         var tableName = $stateParams.tableName;
 
         vm.multiselectCitySettings = {
-            displayProp: 'code',
+            template: '{{option.basicInfo.name}}',
+            buttonDefaultText: 'Select Cities',
+            scrollableHeight: '200px',
+            scrollable: true,
+            styleActive: true,
+            enableSearch: true,
+            keyboardControls: true,
+            smartButtonMaxItems: 10,
+            selectedToTop: true,
+            externalIdProp: '',
+            smartButtonTextConverter: function(itemText, originalItem) { 
+                return itemText; 
+            }
+        };
+        vm.multiselectHotelSettings = {
+            template: '{{option.basicInfo.name}}',
             buttonDefaultText: 'Select Cities',
             scrollableHeight: '200px',
             scrollable: true,
@@ -536,11 +551,9 @@
                 city : function(index){
                     if(index != null || index != undefined){
                         vm.currentIndex.city = index;
-                        angular.forEach(vm.contentList.city, function(value, key){
-                            if(vm.currentDataset.package.cityList[index]._id === value._id) {
-                                vm.currentDataset.city = angular.copy(value);
-                            }
-                        });
+                        vm.currentDataset.city = $filter('filter')(vm.contentList.city, {
+                            '_id':vm.currentDataset.package.cityList[index]._id
+                        })[0]; 
                     }
                 },
                 hotel : function(index){
